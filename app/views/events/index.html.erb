@@ -1,0 +1,29 @@
+<ul class='label-lists'>
+  <% if user_signed_in? %>
+    <li><%= link_to 'MyPage', "/users/#{current_user.id}", class: "mypage" %></li>
+    <li><%= link_to 'イベント登録', "events/new", class: "new-create" %></li>
+  <% else %>
+    <li><%= link_to 'ログイン', "users/sign_in", class: "login" %></li>
+    <li><%= link_to '新規登録', "users/sign_up", class: "signup" %></li>
+  <% end %>
+</ul>
+
+
+<div class="contents">
+  <h2 class='top'>イベント一覧</h2>
+  <% @events.each do |event| %>
+    <div class="evebt-schedule">
+      <p>イベント名：<%= event.name %></p>
+      <span>日時：<%= event.year %>年</span>
+      <span><%= event.month %>月</span>
+      <span><%= event.day %>日</span>
+      <span><%= event.start_hour %>時</span>
+      <span><%= event.start_minute %>分開演</span>
+      <p>出演者：<%= event.cast %></p>
+      <p>会場：<%= event.place %></p>
+      <span>前売り：<%= event.price_future %>円</span>
+      <span>当日券：<%= event.price_today %>円</span>
+      <p>チケット販売サイトURL：<%= event.ticketlink %></p>
+    </div>
+  <% end %>
+</div>
