@@ -1,0 +1,54 @@
+<div class="new-contents">
+  <div class="new-form">
+    <h3>新しいイベントの登録</h3>
+    <%= form_with(model: @event, local: true) do |form| %>
+      <div class="field">
+        <%= form.label :name, "イベント名（必須）"%><br />
+        <%= form.text_field :name, placeholder: "例）ROOK LIVE 2020" %>
+      </div>
+      <div class="field">
+        <%= form.label :year, "開催日/年（西暦）※必須"%><br />
+        <%= form.text_field :year, placeholder: "例）2020(半角数字)" %>年
+      </div>
+      <div class="field">
+        <%= form.label :month, "開催日/月 ※必須"%><br />
+        <%= form.text_field :month, placeholder: "例）12(半角数字)"%>月
+      </div>
+      <div class="field">
+        <%= form.label :day, "開催日/日 ※必須"%><br />
+        <%= form.text_field :day, placeholder: "例）25(半角数字)" %>日
+      </div>
+      <div class="field">
+        <%= form.label :start_hour, "開演時間/時 ※必須"%><br />
+        <%= form.text_field :start_hour, placeholder: "例）20(半角数字)" %>時
+      </div>
+      <div class="field">
+        <%= form.label :start_minute, "開演時間/分 ※必須"%><br />
+        <%= form.text_field :start_minute, placeholder: "例）30（半角数字）" %>分
+      </div>
+      <div class="field">
+        <%= form.label :cast, "出演者（1組ごとに/で区切る）※必須"%><br />
+        <%= form.text_area :cast, placeholder: "例）BAN's/Twink/夜バンド/2nd moon" %>
+      </div>
+      <div class="field">
+        <%= form.label :place, "会場名 ※必須"%><br />
+        <%= form.text_field :place, placeholder: "例）ライブハウスDone新宿" %>
+      </div>
+      <div class="field">
+        <%= form.label :price_future, "チケット価格（前売り）"%><br />
+        <%= form.text_field :price_future, placeholder: "例）1000(半角数字)" %>円
+      </div>
+      <div class="field">
+        <%= form.label :price_today, "チケット価格（当日券）※必須"%><br />
+        <%= form.text_field :price_today, placeholder: "例）1200(半角数字)" %>円
+      </div>
+      <div class="field">
+        <%= form.label :ticketlink, "チケット販売サイトURL"%><br />
+        <%= form.text_field :ticketlink, placeholder: "例）https://ticket.page.1225" %>
+      </div>
+      <div class="btn">
+        <%= form.submit "登録する", class: :form_btn %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,24 +1,47 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :users_events
+- has_many :events, through: users_events
 
-* Configuration
+## events テーブル
 
-* Database creation
+| Column       | Type       | Options     |
+| ------------ | ---------- | ----------- |
+| name         | string     | null: false |
+| year         | integer    | null: false |
+| month        | integer    | null: false |
+| day          | integer    | null: false |
+| start_hour   | integer    | null: false |
+| start_minute | integer    | null: false |
+| cast         | text       | null: false |
+| place        | string     | null: false |
+| price_future | string     |
+| price_today  | string     | null: false |
+| ticketlink   | string     |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :users_events
+- has_many :users, through: users_events
 
-* Services (job queues, cache servers, search engines, etc.)
+## users_events テーブル
 
-* Deployment instructions
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :room
+- belongs_to :user

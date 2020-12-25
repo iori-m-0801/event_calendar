@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <header class="header">
+        <%= link_to image_tag("logo.png", class:"icon"), "/" %>
+    </header>
     <%= yield %>
+    <footer class="footer">
+      <p>
+        EVENT CALENDAR 2020.
+      </p>
+    </footer>
   </body>
 </html>
